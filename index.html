@@ -8,11 +8,13 @@
   <link rel="icon" href="https://img.icons8.com/fluency/48/crown.png" type="image/png"/>
 </head>
 <body>
+  <!-- Banner de app -->
   <div class="top-banner">
     <p>Baixe Nosso APP, Ganhe Super Prêmios! <button>Baixar Agora</button></p>
     <button class="close-banner">X</button>
   </div>
 
+  <!-- Cabeçalho -->
   <header>
     <div class="logo">PK44.COM</div>
     <div class="buttons">
@@ -21,6 +23,7 @@
     </div>
   </header>
 
+  <!-- Promoções -->
   <div class="promo-section">
     <div class="promo-card big">
       <h2>R$100 GRÁTIS!</h2>
@@ -38,6 +41,7 @@
     </div>
   </div>
 
+  <!-- Popular -->
   <div class="popular-section">
     <h2>Popular</h2>
     <div class="games-grid">
@@ -56,6 +60,7 @@
     </div>
   </div>
 
+  <!-- Barra embaixo -->
   <nav class="bottom-nav">
     <div>🏠 Início</div>
     <div>🎁 Promoção</div>
@@ -64,11 +69,11 @@
     <div>👤 Perfil</div>
   </nav>
 
-  <!-- Modal do Fortune Tiger -->
+  <!-- Modal do Fortune Tiger (jogo funcional fake) -->
   <div id="game-modal" class="modal hidden">
     <div class="modal-content">
       <span class="close-modal" onclick="closeGame()">×</span>
-      <h2>Fortune Tiger</h2>
+      <h1>Fortune Tiger</h1>
 
       <div class="tigre-arc">
         <img src="https://i.imgur.com/tigre-com-oculos.png" alt="Tigre" class="tigre"/>
@@ -88,7 +93,7 @@
       <div class="controls">
         <button class="btn turbo">Turbo</button>
         <button class="btn minus">-</button>
-        <span>R$0,40</span>
+        <span class="bet-value">R$0,40</span>
         <button class="btn plus">+</button>
         <button id="spinBtn" class="btn spin">GIRAR</button>
         <button class="btn auto">AUTO</button>
@@ -98,7 +103,7 @@
         Saldo: <span id="saldo">R$10,00</span>
       </div>
 
-      <p id="mensagem">Boa sorte!</p>
+      <p id="mensagem" class="mensagem">Boa sorte!</p>
     </div>
   </div>
 
@@ -107,4 +112,4 @@
 
   <script src="script.js"></script>
 </body>
-        </html>
+</html>
