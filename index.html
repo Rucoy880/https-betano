@@ -1,29 +1,105 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fortune Tiger VIP - Apostados</title>
+  <title>PK44.COM - Apostas e Cassino</title>
   <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
-  <link rel="icon" href="https://img.icons8.com/fluency/48/000000/tiger.png" type="image/png"/>
+  <link rel="icon" href="https://img.icons8.com/fluency/48/crown.png" type="image/png"/>
 </head>
 <body>
-  <div class="container">
-    <h1>Fortune Tiger VIP</h1>
-    <div class="saldo-box">
-      <p>Seu Saldo Atual:</p>
-      <div id="saldo">R$ 0,00</div>
-    </div>
+  <div class="top-banner">
+    <p>Baixe Nosso APP, Ganhe Super Prêmios! <button>Baixar Agora</button></p>
+    <button class="close-banner">X</button>
+  </div>
 
-    <div class="game-area">
-      <div class="reel" id="reel1">🐯</div>
-      <div class="reel" id="reel2">🍀</div>
-      <div class="reel" id="reel3">💰</div>
+  <header>
+    <div class="logo">PK44.COM</div>
+    <div class="buttons">
+      <button class="entrar">ENTRAR</button>
+      <button class="registro">REGISTRO</button>
     </div>
+  </header>
 
-    <button id="spinBtn">GIRAR AGORA (R$ 1,00)</button>
-    <p id="mensagem" class="mensagem">Clique em GIRAR e veja a mágica acontecer!</p>
-    <p id="ultimo-ganho" style="font-size: 1.5rem; margin-top: 20px;">Último ganho: + R$ 0,00</p>
+  <div class="promo-section">
+    <div class="promo-card big">
+      <h2>R$100 GRÁTIS!</h2>
+      <p>CLICA E RECEBE AGORA!</p>
+      <p>SAQUE PIX NA HORA!</p>
+    </div>
+    <div class="promo-card">
+      <h2>INDICAÇÃO = R$70</h2>
+      <p>FÁCIL!</p>
+      <p>100X CASHBACK</p>
+    </div>
+    <div class="promo-card">
+      <h2>LOGIN DIÁRIO</h2>
+      <p>7 DIAS = R$22 GRÁTIS!</p>
+    </div>
+  </div>
+
+  <div class="popular-section">
+    <h2>Popular</h2>
+    <div class="games-grid">
+      <div class="game-card" onclick="openGame()">
+        <img src="https://i.imgur.com/fortune-tiger-icon.png" alt="Fortune Tiger"/>
+        <p>Fortune Tiger</p>
+      </div>
+      <div class="game-card">
+        <img src="https://i.imgur.com/fortune-rabbit-icon.png" alt="Fortune Rabbit"/>
+        <p>Fortune Rabbit</p>
+      </div>
+      <div class="game-card">
+        <img src="https://i.imgur.com/fortune-dragon-icon.png" alt="Fortune Dragon"/>
+        <p>Fortune Dragon</p>
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <div>🏠 Início</div>
+    <div>🎁 Promoção</div>
+    <div>💰 Depósito</div>
+    <div onclick="alert('Saldo insuficiente para saque. Deposite mais!')" class="saque">💸 Saque</div>
+    <div>👤 Perfil</div>
+  </nav>
+
+  <!-- Modal do Fortune Tiger -->
+  <div id="game-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeGame()">×</span>
+      <h2>Fortune Tiger</h2>
+
+      <div class="tigre-arc">
+        <img src="https://i.imgur.com/tigre-com-oculos.png" alt="Tigre" class="tigre"/>
+      </div>
+
+      <div class="reels">
+        <div class="reel" id="reel1">🐯</div>
+        <div class="reel" id="reel2">🍀</div>
+        <div class="reel" id="reel3">🪙</div>
+      </div>
+
+      <div class="info-bar">
+        <div>Bet: R$0,40</div>
+        <div>WIN: <span id="win">R$0,00</span></div>
+      </div>
+
+      <div class="controls">
+        <button class="btn turbo">Turbo</button>
+        <button class="btn minus">-</button>
+        <span>R$0,40</span>
+        <button class="btn plus">+</button>
+        <button id="spinBtn" class="btn spin">GIRAR</button>
+        <button class="btn auto">AUTO</button>
+      </div>
+
+      <div class="balance">
+        Saldo: <span id="saldo">R$10,00</span>
+      </div>
+
+      <p id="mensagem">Boa sorte!</p>
+    </div>
   </div>
 
   <audio id="winSound" src="https://assets.mixkit.co/sfx/preview/mixkit-slot-machine-win-alert-835.mp3"></audio>
@@ -31,4 +107,4 @@
 
   <script src="script.js"></script>
 </body>
-</html>
+        </html>
