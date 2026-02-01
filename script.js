@@ -42,7 +42,7 @@ function animateConfetti() {
   requestAnimationFrame(animateConfetti);
 }
 
-// Loading fake
+// Loading
 setTimeout(() => {
   document.getElementById('loading').classList.add('hidden');
   document.getElementById('game').classList.remove('hidden');
@@ -69,12 +69,12 @@ spinBtn.addEventListener('click', () => {
   setTimeout(() => {
     reels.forEach(reel => reel.style.animationPlayState = 'paused');
 
-    const ganhou = Math.random() > 0.4; // 60% chance de ganhar pra não zerar rápido
+    const ganhou = Math.random() > 0.4;
     if (ganhou) {
       const ganho = Math.floor(Math.random() * 500) + 50;
       saldo += ganho;
       saldoElement.textContent = `R$ ${saldo.toFixed(2).replace('.', ',')}`;
-      mensagem.textContent = `GANHOU R$ ${ganho}!`;
+      mensagem.textContent = `GANHOU R$ ${ganho}! JACKPOT!`;
       mensagem.style.color = "#00ff41";
       winSound.play();
       createParticles();
@@ -89,3 +89,12 @@ spinBtn.addEventListener('click', () => {
 });
 
 animateConfetti();
+
+// Funções do modal
+function openGame() {
+  document.getElementById('game-modal').classList.remove('hidden');
+}
+
+function closeGame() {
+  document.getElementById('game-modal').classList.add('hidden');
+        }
