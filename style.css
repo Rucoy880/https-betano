@@ -1,91 +1,205 @@
-let saldo = 10.00;
-const saldoElement = document.getElementById('saldo');
-const mensagem = document.getElementById('mensagem');
-const spinBtn = document.getElementById('spinBtn');
-const winSound = document.getElementById('winSound');
-const canvas = document.getElementById('confetti');
-const ctx = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-// Confete
-function createParticles() {
-  for (let i = 0; i < 150; i++) {
-    particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height - canvas.height,
-      size: Math.random() * 10 + 5,
-      speed: Math.random() * 6 + 3,
-      color: ['#ff0000', '#00ff00', '#ffff00', '#ff00ff', '#00ffff', '#ffd700'][Math.floor(Math.random() * 6)],
-      rotation: Math.random() * 360,
-      rotSpeed: Math.random() * 12 - 6
-    });
-  }
+body {
+  margin: 0;
+  background: #0a0015;
+  color: #fff;
+  font-family: Arial, sans-serif;
 }
 
-function animateConfetti() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles = particles.filter(p => p.y < canvas.height);
-  particles.forEach(p => {
-    p.y += p.speed;
-    p.rotation += p.rotSpeed;
-    ctx.save();
-    ctx.translate(p.x, p.y);
-    ctx.rotate(p.rotation * Math.PI / 180);
-    ctx.fillStyle = p.color;
-    ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
-    ctx.restore();
-  });
-  requestAnimationFrame(animateConfetti);
+.top-banner {
+  background: linear-gradient(#ff6b00, #ff9900);
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
 }
 
-// Loading fake
-setTimeout(() => {
-  document.getElementById('loading').classList.add('hidden');
-  document.getElementById('game').classList.remove('hidden');
-}, 4000);
+.close-banner {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  background: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
 
-// Girar
-spinBtn.addEventListener('click', () => {
-  if (saldo < 0.40) {
-    mensagem.textContent = "Saldo insuficiente! Recarregue.";
-    mensagem.style.color = "#ff0000";
-    return;
+header {
+  background: #000;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ffd700;
+}
+
+.logo {
+  font-size: 2rem;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+}
+
+.entrar { background: #00ff41; color: black; }
+.registro { background: #ff00aa; color: white; }
+
+.promo-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px;
+}
+
+.promo-card {
+  background: #111;
+  border: 2px solid #ffd700;
+  border-radius: 15px;
+  padding: 15px;
+  flex: 1;
+  text-align: center;
+  min-width: 140px;
+}
+
+.promo-card.big {
+  flex: 2;
+  background: linear-gradient(#ff6b00, #ff9900);
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+  padding: 15px;
+}
+
+.game-card {
+  background: #222;
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+}
+
+.game-card img {
+  width: 100%;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #000;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 2px solid #ffd700;
+  font-size: 0.9rem;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #111;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.hidden { display: none !important; }
+
+.tigre-arc {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.tigre {
+  width: 70%;
+  max-width: 300px;
+}
+
+.reels {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.reel {
+  width: 100px;
+  height: 100px;
+  background: #111;
+  border: 4px solid #ffd700;
+  border-radius: 15px;
+  font-size: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 1s linear infinite paused;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.info-bar, .controls {
+  display: flex;
+  justify-content: space-around;
+  margin: 15px 0;
+}
+
+.btn {
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.spin {
+  background: #00ff41;
+  color: black;
+  font-weight: bold;
+}
+
+.balance {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #00ff41;
+  margin: 20px 0;
+}
+
+.mensagem {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #ffd700;
   }
-
-  saldo -= 0.40;
-  saldoElement.textContent = `R$ ${saldo.toFixed(2).replace('.', ',')}`;
-
-  spinBtn.disabled = true;
-  spinBtn.textContent = "GIRANDO...";
-  mensagem.textContent = "Girando... Boa sorte! 🍀";
-
-  const reels = document.querySelectorAll('.reel');
-  reels.forEach(reel => reel.style.animationPlayState = 'running');
-
-  setTimeout(() => {
-    reels.forEach(reel => reel.style.animationPlayState = 'paused');
-
-    const ganhou = Math.random() > 0.4; // 60% chance de ganhar pra não zerar rápido
-    if (ganhou) {
-      const ganho = Math.floor(Math.random() * 500) + 50;
-      saldo += ganho;
-      saldoElement.textContent = `R$ ${saldo.toFixed(2).replace('.', ',')}`;
-      mensagem.textContent = `GANHOU R$ ${ganho}! 🔥`;
-      mensagem.style.color = "#00ff41";
-      winSound.play();
-      createParticles();
-    } else {
-      mensagem.textContent = "Tente novamente... quase!";
-      mensagem.style.color = "#ff0000";
-    }
-
-    spinBtn.disabled = false;
-    spinBtn.textContent = "GIRAR";
-  }, 3000);
-});
-
-animateConfetti();
