@@ -115,6 +115,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 100;
 }
 
 .modal-content {
@@ -124,6 +125,7 @@ header {
   position: relative;
   width: 90%;
   max-width: 500px;
+  border: 3px solid #ffd700;
 }
 
 .close-modal {
@@ -132,6 +134,7 @@ header {
   right: 15px;
   font-size: 2rem;
   cursor: pointer;
+  color: #fff;
 }
 
 .hidden { display: none !important; }
@@ -164,6 +167,7 @@ header {
   align-items: center;
   justify-content: center;
   animation: spin 1s linear infinite paused;
+  box-shadow: 0 0 15px #ffd700;
 }
 
 @keyframes spin {
@@ -171,10 +175,21 @@ header {
   100% { transform: rotate(360deg); }
 }
 
-.info-bar, .controls {
+.info-bar {
   display: flex;
   justify-content: space-around;
+  background: #000;
+  padding: 10px;
+  border-radius: 15px;
   margin: 15px 0;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0;
 }
 
 .btn {
@@ -189,6 +204,7 @@ header {
   background: #00ff41;
   color: black;
   font-weight: bold;
+  box-shadow: 0 0 20px #00ff41;
 }
 
 .balance {
