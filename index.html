@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fortune Tiger VIP - Apostados</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="https://img.icons8.com/fluency/48/000000/tiger.png" type="image/png"/>
+</head>
+<body>
+  <div class="container">
+    <h1>Fortune Tiger VIP</h1>
+    <div class="saldo-box">
+      <p>Seu Saldo Atual:</p>
+      <div id="saldo">R$ 0,00</div>
+    </div>
+
+    <div class="game-area">
+      <div class="reel" id="reel1">🐯</div>
+      <div class="reel" id="reel2">🍀</div>
+      <div class="reel" id="reel3">💰</div>
+    </div>
+
+    <button id="spinBtn">GIRAR AGORA (R$ 1,00)</button>
+    <p id="mensagem" class="mensagem">Clique em GIRAR e veja a mágica acontecer!</p>
+    <p id="ultimo-ganho" style="font-size: 1.5rem; margin-top: 20px;">Último ganho: + R$ 0,00</p>
+  </div>
+
+  <audio id="winSound" src="https://assets.mixkit.co/sfx/preview/mixkit-slot-machine-win-alert-835.mp3"></audio>
+  <canvas id="confetti"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
