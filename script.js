@@ -42,7 +42,7 @@ function animateConfetti() {
   requestAnimationFrame(animateConfetti);
 }
 
-// Loading
+// Loading fake
 setTimeout(() => {
   document.getElementById('loading').classList.add('hidden');
   document.getElementById('game').classList.remove('hidden');
@@ -61,7 +61,7 @@ spinBtn.addEventListener('click', () => {
 
   spinBtn.disabled = true;
   spinBtn.textContent = "GIRANDO...";
-  mensagem.textContent = "Girando...";
+  mensagem.textContent = "Girando... Boa sorte!";
 
   const reels = document.querySelectorAll('.reel');
   reels.forEach(reel => reel.style.animationPlayState = 'running');
@@ -69,7 +69,7 @@ spinBtn.addEventListener('click', () => {
   setTimeout(() => {
     reels.forEach(reel => reel.style.animationPlayState = 'paused');
 
-    const ganhou = Math.random() > 0.4;
+    const ganhou = Math.random() > 0.4; // 60% chance de ganhar pra não zerar rápido
     if (ganhou) {
       const ganho = Math.floor(Math.random() * 500) + 50;
       saldo += ganho;
@@ -79,7 +79,7 @@ spinBtn.addEventListener('click', () => {
       winSound.play();
       createParticles();
     } else {
-      mensagem.textContent = "Tente novamente!";
+      mensagem.textContent = "Tente novamente... quase!";
       mensagem.style.color = "#ff0000";
     }
 
