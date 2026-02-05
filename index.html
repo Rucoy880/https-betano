@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>PK44.COM - Cassino Online</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -26,12 +27,19 @@
             --border-color: #2a3142;
         }
 
-        body {
+        html, body {
             font-family: 'Montserrat', sans-serif;
-            background: var(--primary-bg);
-            color: var(--text-primary);
+            background-color: #0a0e1a !important;
+            background: #0a0e1a !important;
+            color: #ffffff;
             overflow-x: hidden;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        body {
             padding-bottom: 80px;
+            position: relative;
         }
 
         /* Auth Screens */
@@ -51,12 +59,12 @@
         }
 
         .auth-box {
-            background: var(--secondary-bg);
+            background: #1a1f2e;
             border-radius: 24px;
             padding: 40px 30px;
             width: 100%;
             max-width: 400px;
-            border: 1px solid var(--border-color);
+            border: 1px solid #2a3142;
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
         }
 
@@ -72,7 +80,7 @@
 
         .auth-subtitle {
             text-align: center;
-            color: var(--text-secondary);
+            color: #8b92a8;
             margin-bottom: 30px;
             font-size: 14px;
         }
@@ -86,16 +94,16 @@
             margin-bottom: 8px;
             font-size: 13px;
             font-weight: 600;
-            color: var(--text-secondary);
+            color: #8b92a8;
             text-transform: uppercase;
         }
 
         .input-group input {
             width: 100%;
             padding: 16px;
-            border: 2px solid var(--border-color);
+            border: 2px solid #2a3142;
             border-radius: 12px;
-            background: var(--primary-bg);
+            background: #0a0e1a;
             color: white;
             font-size: 16px;
             font-family: inherit;
@@ -104,7 +112,7 @@
 
         .input-group input:focus {
             outline: none;
-            border-color: var(--accent-yellow);
+            border-color: #ffd700;
         }
 
         .btn-auth {
@@ -130,37 +138,14 @@
         .auth-switch {
             text-align: center;
             margin-top: 20px;
-            color: var(--text-secondary);
+            color: #8b92a8;
             font-size: 14px;
         }
 
         .auth-switch span {
-            color: var(--accent-yellow);
+            color: #ffd700;
             cursor: pointer;
             font-weight: 700;
-        }
-
-        .balance-display {
-            background: linear-gradient(135deg, rgba(0, 210, 106, 0.2), rgba(0, 210, 106, 0.05));
-            border: 2px solid var(--accent-green);
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .balance-label {
-            font-size: 12px;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .balance-amount {
-            font-size: 36px;
-            font-weight: 900;
-            color: var(--accent-green);
-            margin-top: 5px;
         }
 
         /* App Download Banner */
@@ -172,6 +157,7 @@
             justify-content: space-between;
             position: relative;
             border-bottom: 1px solid rgba(255,255,255,0.1);
+            width: 100%;
         }
 
         .app-banner-content {
@@ -203,6 +189,7 @@
             font-size: 14px;
             font-weight: 700;
             margin-bottom: 2px;
+            color: white;
         }
 
         .app-text p {
@@ -217,7 +204,7 @@
         }
 
         .btn-update {
-            background: var(--accent-blue);
+            background: #0099ff;
             color: white;
             border: none;
             padding: 8px 16px;
@@ -239,7 +226,7 @@
 
         /* Header */
         .header {
-            background: var(--secondary-bg);
+            background: #1a1f2e;
             padding: 12px 16px;
             display: flex;
             align-items: center;
@@ -248,6 +235,7 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            width: 100%;
         }
 
         .menu-btn {
@@ -262,7 +250,7 @@
 
         .menu-btn span {
             height: 3px;
-            background: var(--text-primary);
+            background: #ffffff;
             border-radius: 2px;
             transition: all 0.3s;
         }
@@ -294,63 +282,25 @@
 
         .user-balance-header {
             background: rgba(0, 210, 106, 0.2);
-            border: 1px solid var(--accent-green);
+            border: 1px solid #00d26a;
             padding: 8px 16px;
             border-radius: 20px;
             font-weight: 700;
-            color: var(--accent-green);
+            color: #00d26a;
             font-size: 14px;
-            cursor: pointer;
-        }
-
-        .btn-login {
-            background: var(--accent-blue);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 13px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-transform: uppercase;
-        }
-
-        .btn-register {
-            background: var(--accent-green);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 13px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-transform: uppercase;
-        }
-
-        .search-btn {
-            width: 40px;
-            height: 40px;
-            background: none;
-            border: 2px solid var(--border-color);
-            border-radius: 50%;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             cursor: pointer;
         }
 
         /* Categories */
         .categories {
-            background: var(--secondary-bg);
+            background: #1a1f2e;
             padding: 16px;
             display: flex;
             gap: 20px;
             overflow-x: auto;
             scrollbar-width: none;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid #2a3142;
+            width: 100%;
         }
 
         .categories::-webkit-scrollbar {
@@ -373,7 +323,7 @@
         }
 
         .category-item.active .category-icon {
-            color: var(--accent-green);
+            color: #00d26a;
             transform: scale(1.1);
         }
 
@@ -386,17 +336,20 @@
             font-size: 12px;
             font-weight: 600;
             white-space: nowrap;
+            color: #ffffff;
         }
 
         /* Games Grid */
         .games-section {
             padding: 20px 16px;
+            width: 100%;
         }
 
         .games-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 16px;
+            width: 100%;
         }
 
         .game-card {
@@ -407,7 +360,7 @@
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-            background: var(--secondary-bg);
+            background: #1a1f2e;
         }
 
         .game-card:hover {
@@ -450,6 +403,7 @@
             font-weight: 700;
             text-transform: uppercase;
             backdrop-filter: blur(10px);
+            color: white;
         }
 
         .game-favorite {
@@ -483,11 +437,12 @@
             letter-spacing: 0.5px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
             margin-bottom: 4px;
+            color: white;
         }
 
         .game-min-bet {
             font-size: 11px;
-            color: var(--accent-yellow);
+            color: #ffd700;
             font-weight: 600;
         }
 
@@ -503,6 +458,7 @@
             font-weight: 800;
             box-shadow: 0 4px 15px rgba(255,107,53,0.4);
             animation: pulse 2s infinite;
+            color: white;
         }
 
         @keyframes pulse {
@@ -534,6 +490,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            background: #0a0e1a;
         }
 
         .slot-header {
@@ -570,7 +527,7 @@
             background: linear-gradient(135deg, #1a1f2e 0%, #0a0e1a 100%);
             border-radius: 24px;
             padding: 30px 20px;
-            border: 3px solid var(--accent-yellow);
+            border: 3px solid #ffd700;
             box-shadow: 0 0 40px rgba(255, 215, 0, 0.2);
             margin-bottom: 20px;
         }
@@ -661,7 +618,7 @@
             height: 40px;
             border: none;
             border-radius: 50%;
-            background: var(--accent-blue);
+            background: #0099ff;
             color: white;
             font-size: 20px;
             font-weight: 700;
@@ -671,14 +628,14 @@
 
         .bet-btn:hover {
             transform: scale(1.1);
-            background: var(--accent-yellow);
+            background: #ffd700;
             color: black;
         }
 
         .bet-amount {
             font-size: 24px;
             font-weight: 900;
-            color: var(--accent-yellow);
+            color: #ffd700;
         }
 
         .spin-btn {
@@ -720,7 +677,7 @@
         .win-amount {
             font-size: 48px;
             font-weight: 900;
-            color: var(--accent-green);
+            color: #00d26a;
             text-shadow: 0 0 20px rgba(0, 210, 106, 0.5);
             animation: winPulse 0.5s ease-in-out;
         }
@@ -732,7 +689,7 @@
 
         .win-multiplier {
             font-size: 18px;
-            color: var(--accent-yellow);
+            color: #ffd700;
             font-weight: 700;
         }
 
@@ -746,4 +703,69 @@
         .info-box {
             background: rgba(255,255,255,0.05);
             padding: 15px;
-            border
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 11px;
+            color: #8b92a8;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1f2e;
+            border-top: 1px solid #2a3142;
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            width: 100%;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            color: #8b92a8;
+        }
+
+        .nav-item.active {
+            color: #00d26a;
+        }
+
+        .nav-item.active::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            width: 40px;
+            height: 3px;
+            background: #00d26a;
+            border-radius: 2px;
+        }
+
+        .nav-icon {
+            font-size: 24px;
+            transition: all 0.3s;
+        }
+
+        .nav-item:hover .nav-icon {
+            t
